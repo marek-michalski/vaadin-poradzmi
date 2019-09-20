@@ -1,13 +1,13 @@
 .main-view {
     display: flex;
     flex-direction: column;
-    max-width: 1000px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 }
 
 .header {
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .center {
@@ -19,7 +19,7 @@
 .menu {
     flex: 1;
     min-width: 200px;
-    background-color: gray;
+    background-color: lightgray;
 }
 
 .content {
