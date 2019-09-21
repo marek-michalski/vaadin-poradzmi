@@ -13,9 +13,9 @@ import com.vaadin.flow.router.Route;
 
 @Route("")
 @StyleSheet("/css/style.css")
-public class Layout extends Div {
+public class HomeGui extends Div {
 
-    public Layout() {
+    public HomeGui() {
 
         // Instantiate layouts
         HorizontalLayout header = new HorizontalLayout();
@@ -76,9 +76,9 @@ public class Layout extends Div {
                         ui.navigate("")));
 
         Button buttonQuestion = new Button("Pytania", new Icon(VaadinIcon.QUESTION));
-        buttonQuestion.addClickListener(click -> {
-            Notification.show("Lista pytań!");
-        });
+        buttonQuestion.addClickListener(e ->
+                buttonQuestion.getUI().ifPresent(ui ->
+                        ui.navigate("question")));
 
         Button buttonUsers = new Button("Użytkownicy", new Icon(VaadinIcon.USERS));
         buttonUsers.addClickListener(click -> {
