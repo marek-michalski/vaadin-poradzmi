@@ -10,4 +10,5 @@ public interface QuestionRepo extends CrudRepository<Question, Long> {
 
     @Query(value = "SELECT * FROM QUESTION q WHERE q.TAGS = :tags", nativeQuery = true)
     List<Question> findQuestionByTags(@Param("tags") String tags);
+
 }

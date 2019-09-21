@@ -78,7 +78,7 @@ public class HomeGui extends Div {
         Button buttonQuestion = new Button("Pytania", new Icon(VaadinIcon.QUESTION));
         buttonQuestion.addClickListener(e ->
                 buttonQuestion.getUI().ifPresent(ui ->
-                        ui.navigate("question")));
+                        ui.navigate("questionAll")));
 
         Button buttonUsers = new Button("Użytkownicy", new Icon(VaadinIcon.USERS));
         buttonUsers.addClickListener(click -> {
