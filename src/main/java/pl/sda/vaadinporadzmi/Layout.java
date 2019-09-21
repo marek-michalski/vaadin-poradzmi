@@ -3,9 +3,12 @@ package pl.sda.vaadinporadzmi;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dependency.StyleSheet;
 import com.vaadin.flow.component.html.*;
+import com.vaadin.flow.component.icon.Icon;
+import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
 
 @Route("")
@@ -13,6 +16,7 @@ import com.vaadin.flow.router.Route;
 public class Layout extends Div {
 
     public Layout() {
+
         // Instantiate layouts
         HorizontalLayout header = new HorizontalLayout();
         VerticalLayout menu = new VerticalLayout();
@@ -32,40 +36,84 @@ public class Layout extends Div {
         footer.addClassName("footer");
 
 
-        // Add content
-        header.add(new H3("PORADŹ MI! :)"));
-        menu.add(new H4("MENU"));
-        content.add(new H4("CONTENT"));
-        footer.add(new H6("Copyright © 2019 by Marek Michalski."));
+        // HEADER
+        Image image = new Image("/images/advice_small.png", "Advice image logo.");
 
-        Button buttonSearch = new Button("Szukaj");
+        TextField textField = new TextField();
+        textField.setPlaceholder("Poradź mi...");
+        textField.addClassName("textField");
+
+        Button buttonSearch = new Button("Szukaj", new Icon(VaadinIcon.SEARCH));
         buttonSearch.addClickListener(click -> {
-            Notification.show("Thanks for clicking!");
+            Notification.show("Wyszukiwanie zakończone.");
         });
 
-        Button buttonQuestion = new Button("Zadaj pytanie");
-        buttonQuestion.addClickListener(click -> {
-            Notification.show("Thanks for clicking!");
-        });
+        buttonSearch.addClassName("buttonSearch");
 
-        Button buttonNewAccount = new Button("Utwórz konto");
+        Button buttonNewAccount = new Button("Utwórz konto", new Icon(VaadinIcon.USER));
         buttonNewAccount.addClickListener(click -> {
-            Notification.show("Thanks for clicking!");
+            Notification.show("Gratulacje - utworzono nowe konto.");
         });
+        buttonNewAccount.addClassName("buttonNewAccount");
 
-        Button buttonLogin = new Button("Zaloguj");
+        Button buttonLogin = new Button("Zaloguj", new Icon(VaadinIcon.SIGN_IN));
         buttonLogin.addClickListener(click -> {
-            Notification.show("Thanks for clicking!");
+            Notification.show("Zalogowano!");
+        });
+        buttonLogin.addClassName("buttonLogin");
+
+        // MENU Buttons
+        Button buttonHome = new Button("Strona Główna", new Icon(VaadinIcon.HOME));
+        buttonHome.addClickListener(click -> {
+            Notification.show("Strona Główna!");
         });
 
-        Label label = new Label("Tutaj powstanie jakiś wpis...");
+        Button buttonQuestion = new Button("Pytania", new Icon(VaadinIcon.QUESTION));
+        buttonQuestion.addClickListener(click -> {
+            Notification.show("Lista pytań!");
+        });
 
-        header.add(buttonSearch);
+        Button buttonUsers = new Button("Użytkownicy", new Icon(VaadinIcon.USERS));
+        buttonUsers.addClickListener(click -> {
+            Notification.show("Użytkownicy!");
+        });
+
+        Button buttonTags = new Button("Tagi", new Icon(VaadinIcon.TAGS));
+        buttonTags.addClickListener(click -> {
+            Notification.show("Tagi!");
+        });
+
+        Button buttonHelp = new Button("Pomoc", new Icon(VaadinIcon.AMBULANCE));
+        buttonHelp.addClickListener(click -> {
+            Notification.show("Pomoc!");
+        });
+
+        Button buttonContact = new Button("Kontakt", new Icon(VaadinIcon.MAILBOX));
+        buttonContact.addClickListener(click -> {
+            Notification.show("Formularz kontaktowy!");
+        });
+
+        header.add(image);
+        header.add(textField, buttonSearch);
+        header.add(buttonNewAccount);
+        header.add(buttonLogin);
+
+        menu.add(buttonHome);
+        menu.add(buttonUsers);
         menu.add(buttonQuestion);
-        menu.add(buttonNewAccount);
-        menu.add(buttonLogin);
+        menu.add(buttonTags);
+        menu.add(buttonHelp);
+        menu.add(buttonContact);
+
+        // CONTENT
+        content.add(new H4("CONTENT:"));
+        Label label = new Label("Tutaj powstanie jakiś wpis...");
         content.add(label);
 
+        // FOOTER
+        Label copyright = new Label("Copyright © 2019 by Marek Michalski.");
+        copyright.addClassName("copyright");
+        footer.add(copyright);
 
         // Compose layout
         center.add(menu, content);

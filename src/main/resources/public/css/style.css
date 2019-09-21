@@ -7,6 +7,8 @@
 }
 
 .header {
+    display: flex;
+    flex-wrap: wrap;
     background-color: lightgray;
 }
 
@@ -29,5 +31,33 @@
 }
 
 .footer {
+    display: flex;
+    flex-wrap: wrap;
     background-color: silver;
+}
+
+.textField {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.copyright {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buttonSearch {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.buttonNewAccount {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: auto;
+}
+
+.buttonLogin {
+    margin-top: auto;
+    margin-bottom: auto;
 }
