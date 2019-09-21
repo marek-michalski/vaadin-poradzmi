@@ -50,6 +50,13 @@ public class Layout extends Div {
 
         buttonSearch.addClassName("buttonSearch");
 
+        Button buttonAsk = new Button("Zadaj pytanie", new Icon(VaadinIcon.QUESTION_CIRCLE_O));
+        buttonAsk.addClickListener(e ->
+                buttonAsk.getUI().ifPresent(ui ->
+                        ui.navigate("question")));
+
+        buttonAsk.addClassName("buttonAsk");
+
         Button buttonNewAccount = new Button("Utwórz konto", new Icon(VaadinIcon.USER));
         buttonNewAccount.addClickListener(click -> {
             Notification.show("Gratulacje - utworzono nowe konto.");
@@ -64,9 +71,9 @@ public class Layout extends Div {
 
         // MENU Buttons
         Button buttonHome = new Button("Strona Główna", new Icon(VaadinIcon.HOME));
-        buttonHome.addClickListener(click -> {
-            Notification.show("Strona Główna!");
-        });
+        buttonHome.addClickListener(e ->
+                buttonHome.getUI().ifPresent(ui ->
+                        ui.navigate("")));
 
         Button buttonQuestion = new Button("Pytania", new Icon(VaadinIcon.QUESTION));
         buttonQuestion.addClickListener(click -> {
@@ -79,9 +86,9 @@ public class Layout extends Div {
         });
 
         Button buttonTags = new Button("Tagi", new Icon(VaadinIcon.TAGS));
-        buttonTags.addClickListener(click -> {
-            Notification.show("Tagi!");
-        });
+        buttonTags.addClickListener(e ->
+                buttonTags.getUI().ifPresent(ui ->
+                        ui.navigate("tags")));
 
         Button buttonHelp = new Button("Pomoc", new Icon(VaadinIcon.AMBULANCE));
         buttonHelp.addClickListener(click -> {
@@ -95,6 +102,7 @@ public class Layout extends Div {
 
         header.add(image);
         header.add(textField, buttonSearch);
+        header.add(buttonAsk);
         header.add(buttonNewAccount);
         header.add(buttonLogin);
 

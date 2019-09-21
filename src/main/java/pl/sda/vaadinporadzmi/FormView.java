@@ -12,17 +12,23 @@ public class FormView extends FormLayout {
         Person model = new Person();
 
         TextField firstNameField = new TextField("First Name");
-        Binder<Person> binder = new Binder<>(Person.class);
+        Binder<Person> binder1 = new Binder<>(Person.class);
 
-        binder.forField(firstNameField).bind(Person::getFirstName, Person::setFirstName);
+        binder1.forField(firstNameField).bind(Person::getFirstName, Person::setFirstName);
+
+        TextField lastNameField = new TextField("Last Name");
+        Binder<Person> binder2 = new Binder<>(Person.class);
+
+        binder2.forField(firstNameField).bind(Person::getLastName, Person::setLastName);
 
         // One-way data binding
         // binder.readBean(model);
 
         // Two-way data binding
-        binder.setBean(model);
+        binder1.setBean(model);
+        binder2.setBean(model);
 
-        add(firstNameField);
+        add(firstNameField, lastNameField);
     }
 }
 

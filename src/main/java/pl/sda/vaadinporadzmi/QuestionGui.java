@@ -1,6 +1,7 @@
 package pl.sda.vaadinporadzmi;
 
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.notification.Notification;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextArea;
 import com.vaadin.flow.component.textfield.TextField;
@@ -19,11 +20,16 @@ public class QuestionGui extends VerticalLayout {
     private TextArea textAreaDescription = new TextArea("Opisz swój problem:");
     private Button buttonAdd = new Button("Dodaj");
 
+
     public QuestionGui() {
 
         add(textFieldType, textFieldTags, textFieldTitle, textAreaDescription, buttonAdd);
 
-        buttonAdd.addClickListener(clickEvent-> {
+        buttonAdd.addClickListener(click -> {
+            Notification.show("Dodano do bazy!");
+        });
+
+        buttonAdd.addClickListener(clickEvent -> {
             Question question = new Question();
             question.setType(textFieldType.getValue());
             question.setTags(textFieldTags.getValue());
