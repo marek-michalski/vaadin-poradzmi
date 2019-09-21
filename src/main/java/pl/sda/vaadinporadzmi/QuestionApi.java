@@ -24,9 +24,9 @@ public class QuestionApi {
         return questionRepo.findAll();
     }
 
-//    @GetMapping("/findQuestionByTags")
-//    public Iterable<Question> findQuestionByTags(@RequestParam("tags") String tags) {
-//        return questionRepo.findQuestionByTags(tags);
-//    }
+    @GetMapping("/findQuestionByTags")
+    public Iterable<Question> findQuestionByTags(@RequestParam("tags") String tags) {
+        return questionRepo.findQuestionByTags(tags);
+    }
 
 }

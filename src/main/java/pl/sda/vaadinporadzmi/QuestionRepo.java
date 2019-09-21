@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface QuestionRepo extends CrudRepository<Question, Long> {
 
-//    @Query(value = "SELECT * FROM QUESTION q WHERE q.TAGS > :TAGS", nativeQuery = true)
-//    List<Question> findQuestionByTags(@Param("tags") String tags);
+    @Query(value = "SELECT * FROM QUESTION q WHERE q.TAGS = :tags", nativeQuery = true)
+    List<Question> findQuestionByTags(@Param("tags") String tags);
 }
