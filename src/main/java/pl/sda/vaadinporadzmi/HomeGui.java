@@ -10,11 +10,12 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.router.RouterLink;
 
 @Route("")
 @StyleSheet("/css/style.css")
-public class HomeGui extends Div {
+public class HomeGui extends Div implements RouterLayout {
 
     public HomeGui() {
 
@@ -116,7 +117,7 @@ public class HomeGui extends Div {
 
         // CONTENT
         content.add(new H4("CONTENT:"));
-        content.add(new RouterLink("Wszystkie wpisy", QuestionGridGui.class));
+//        content.add(new RouterLink("Wszystkie wpisy", QuestionGridGui.class));
 
         // FOOTER
         Label copyright = new Label("Copyright © 2019 by Marek Michalski.");
