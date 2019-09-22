@@ -10,6 +10,7 @@ import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.RouterLink;
 
 @Route("")
 @StyleSheet("/css/style.css")
@@ -78,7 +79,7 @@ public class HomeGui extends Div {
         Button buttonQuestion = new Button("Pytania", new Icon(VaadinIcon.QUESTION));
         buttonQuestion.addClickListener(e ->
                 buttonQuestion.getUI().ifPresent(ui ->
-                        ui.navigate("questionAll")));
+                        ui.navigate("gridAll")));
 
         Button buttonUsers = new Button("Użytkownicy", new Icon(VaadinIcon.USERS));
         buttonUsers.addClickListener(click -> {
@@ -115,8 +116,7 @@ public class HomeGui extends Div {
 
         // CONTENT
         content.add(new H4("CONTENT:"));
-        Label label = new Label("Tutaj powstanie jakiś wpis...");
-        content.add(label);
+        content.add(new RouterLink("Wszystkie wpisy", QuestionGridGui.class));
 
         // FOOTER
         Label copyright = new Label("Copyright © 2019 by Marek Michalski.");
